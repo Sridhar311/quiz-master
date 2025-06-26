@@ -38,4 +38,11 @@ app.use('/api/auth', authRoutes);
 app.use('/api/categories', categoriesRoutes);
 app.use('/api/questions', questionsRoutes);
 app.use('/api/results', resultsRoutes);
-app.use('/api/users', usersRoutes); 
+app.use('/api/users', usersRoutes);
+
+// Serve React build static files in production
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build', 'index.html'));
+}); 

@@ -53,8 +53,8 @@ router.post('/register', async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'quizmaster725@gmail.com',
-        pass: 'omtwocixkvyqdalr'
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
       },
       tls: {
         rejectUnauthorized: false
@@ -113,8 +113,8 @@ router.post('/forgot-password', async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'quizmaster725@gmail.com',
-      pass: 'quizmaster123@123'
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
     }
   });
 
