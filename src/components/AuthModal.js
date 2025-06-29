@@ -142,6 +142,7 @@ const AuthModal = ({ isOpen, onClose, onAuthSuccess }) => {
                 onChange={e => setPassword(e.target.value)}
                 required
                 disabled={loading}
+                autoComplete="current-password"
               />
             </div>
             <div className="auth-form-row">
