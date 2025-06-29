@@ -60,7 +60,7 @@ router.post('/register', async (req, res) => {
         rejectUnauthorized: false
       }
     });
-    const verifyUrl = `http://localhost:3000/verify-email/${verifyToken}`;
+    const verifyUrl = `https://quiz-master-r7lf.onrender.com/verify-email/${verifyToken}`;
 
     try {
       await transporter.sendMail({
@@ -118,7 +118,7 @@ router.post('/forgot-password', async (req, res) => {
     }
   });
 
-  const resetUrl = `http://localhost:3000/reset-password/${token}`;
+  const resetUrl = `https://quiz-master-r7lf.onrender.com/reset-password/${token}`;
   await transporter.sendMail({
     from: 'Quiz App <quizmaster725@gmail.com>',
     to: email,
