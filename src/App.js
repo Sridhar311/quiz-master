@@ -309,7 +309,7 @@ function App() {
           onLogout={handleLogout}
           onShowHistory={() => handleNavigation('history')}
         />
-        <Sidebar open={sidebarOpen} onClose={handleSidebarClose} onNavigate={handleNavigation} />
+        <Sidebar isOpen={sidebarOpen} onClose={handleSidebarClose} onNavigate={handleNavigation} />
         {renderCurrentView()}
         <AuthModal
           isOpen={authModalOpen}
