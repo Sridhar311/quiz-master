@@ -1,4 +1,5 @@
 import React from 'react';
+import './Sidebar.css';
 
 const Sidebar = ({ isOpen, onClose, onNavigate }) => {
   const handleNavigation = (page) => {
