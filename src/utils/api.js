@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://quiz-master-r7lf.onrender.com/api';
 
 export async function login(email, password) {
   const res = await axios.post(`${API_URL}/auth/login`, { email, password });
@@ -95,7 +95,7 @@ export async function getQuizResults() {
 }
 
 export async function loginWithGoogle(idToken) {
-  const res = await axios.post('http://localhost:5000/api/auth/google', { idToken });
+  const res = await axios.post('https://quiz-master-r7lf.onrender.com/api/auth/google', { idToken });
   localStorage.setItem('token', res.data.token);
   return res.data.user;
 }
