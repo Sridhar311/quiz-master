@@ -1592,4 +1592,43 @@ code {
 }
 .dark-mode .navbar-user-dropdown-item:hover {
   background: #2d3a5a;
+}
+
+@media (min-width: 900px) {
+  .App {
+    flex-direction: row;
+    min-height: 100vh;
+  }
+  .sidebar {
+    position: fixed;
+    top: 70px; /* height of navbar */
+    left: 0;
+    height: calc(100vh - 70px);
+    z-index: 100;
+  }
+  .main-content {
+    margin-left: 220px; /* width of sidebar */
+    margin-top: 70px;   /* height of navbar */
+    width: calc(100% - 220px);
+    min-height: calc(100vh - 70px);
+  }
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 101;
+  }
+}
+
+@media (max-width: 899px) {
+  .main-content {
+    margin-top: 70px;
+    margin-left: 0;
+    width: 100%;
+  }
+  .sidebar {
+    top: 0;
+    height: 100vh;
+  }
 } 
