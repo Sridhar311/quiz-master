@@ -35,6 +35,7 @@ function App() {
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [attemptId, setAttemptId] = useState(null);
   const [elapsedTime, setElapsedTime] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     // Listen for auth state changes
@@ -57,6 +58,12 @@ function App() {
       setSelectedCategory(null);
     }
   }, [user]);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Filter questions based on category
   const filterQuestions = (category, difficulty, count) => {
@@ -309,7 +316,9 @@ function App() {
           onLogout={handleLogout}
           onShowHistory={() => handleNavigation('history')}
         />
-        <Sidebar isOpen={sidebarOpen} onClose={handleSidebarClose} onNavigate={handleNavigation} />
+        {windowWidth < 900 && (
+          <Sidebar isOpen={sidebarOpen} onClose={handleSidebarClose} onNavigate={handleNavigation} />
+        )}
         {renderCurrentView()}
         <AuthModal
           isOpen={authModalOpen}
